@@ -79,35 +79,49 @@ function initPixelEffect() {
 	imageObj.src = img.src;
 
 	imageObj.onload = function () {
-		const width = imageObj.width || 300;
-		const height = imageObj.height || 300;
-		canvas.width = width;
-		canvas.height = height;
-		canvas.className = "pixel-canvas";
+		try {
+			const width = imageObj.naturalWidth || 300;
+			const height = imageObj.naturalHeight || 300;
+			canvas.width = width;
+			canvas.height = height;
+			canvas.className = "pixel-canvas";
 
-		parent.replaceChild(canvas, img);
+			// Prueba rápida para verificar si el canvas permite lectura de píxeles (CORS)
+			ctx.drawImage(imageObj, 0, 0, 1, 1);
+			ctx.getImageData(0, 0, 1, 1); // Dispara error si está contaminado por CORS
 
-		let pixelFactor = 0.02; // Comienza pixelado
+			parent.replaceChild(canvas, img);
 
-		function drawPixelated() {
-			ctx.imageSmoothingEnabled = false;
+			let pixelFactor = 0.02;
 
-			const w = Math.max(1, Math.floor(width * pixelFactor));
-			const h = Math.max(1, Math.floor(height * pixelFactor));
+			function drawPixelated() {
+				ctx.imageSmoothingEnabled = false;
 
-			ctx.drawImage(imageObj, 0, 0, w, h);
-			ctx.drawImage(canvas, 0, 0, w, h, 0, 0, width, height);
+				const w = Math.max(1, Math.floor(width * pixelFactor));
+				const h = Math.max(1, Math.floor(height * pixelFactor));
 
-			if (pixelFactor < 1) {
-				pixelFactor += 0.03;
-				requestAnimationFrame(drawPixelated);
-			} else {
-				ctx.imageSmoothingEnabled = true;
-				ctx.drawImage(imageObj, 0, 0, width, height);
+				ctx.drawImage(imageObj, 0, 0, w, h);
+				ctx.drawImage(canvas, 0, 0, w, h, 0, 0, width, height);
+
+				if (pixelFactor < 1) {
+					pixelFactor += 0.03;
+					requestAnimationFrame(drawPixelated);
+				} else {
+					ctx.imageSmoothingEnabled = true;
+					ctx.drawImage(imageObj, 0, 0, width, height);
+				}
 			}
-		}
 
-		drawPixelated();
+			drawPixelated();
+		} catch (e) {
+			// Si ocurre un bloqueo de CORS, mostramos la imagen HTML de forma normal
+			console.warn("Canvas bloqueado por CORS. Mostrando imagen standard.", e);
+			img.style.display = "block";
+		}
+	};
+
+	imageObj.onerror = function () {
+		console.error("No se pudo cargar la imagen:", img.src);
 	};
 }
 
