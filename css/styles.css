@@ -1,8 +1,8 @@
 :root {
     --bg-color: #1a1a1a;
+    --sidebar-bg: #151515;
     --text-color: #b0b0b0;
     --text-hover: #ffffff;
-    /* Blanco suave para resaltados */
     --border-color: #444444;
 }
 
@@ -14,20 +14,23 @@ body {
     padding: 0;
     min-height: 100vh;
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 
-/* HEADER SUPERIOR (Fijo como en tu diseño original) */
+/* HEADER SUPERIOR (Ajustado para que termine ANTES del sidebar) */
 #top-bar {
     position: absolute;
     top: 1.5rem;
     left: 2rem;
-    right: 2rem;
+    right: 270px;
+    /* 250px del sidebar + 20px de margen */
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     font-size: 0.85rem;
     color: #cccccc;
     pointer-events: none;
+    z-index: 10;
 }
 
 #date-time,
@@ -108,10 +111,9 @@ aside .pixel-canvas {
 #dock a:hover svg {
     fill: var(--text-hover);
     transform: translateY(-4px) scale(1.15);
-    /* Efecto de rebote */
 }
 
-/* CAJA DE BÚSQUEDA (Borde fino en blanco suave) */
+/* CAJA DE BÚSQUEDA */
 #search {
     width: 100%;
 }
@@ -160,7 +162,7 @@ aside .pixel-canvas {
     stroke: #ffffff;
 }
 
-/* BOOKMARKS EN COLUMNAS (Estilo limpio original + Bounce) */
+/* BOOKMARKS EN COLUMNAS */
 #bookmarks {
     display: flex;
     justify-content: space-between;
@@ -178,7 +180,6 @@ aside .pixel-canvas {
     margin-bottom: 0.6rem;
 }
 
-/* Efecto de rebote (bounce) e iluminación blanco suave al pasar por las letras */
 #bookmarks a {
     display: inline-flex;
     align-items: center;
@@ -192,7 +193,6 @@ aside .pixel-canvas {
 #bookmarks a:hover {
     color: var(--text-hover);
     transform: translateX(4px) scale(1.03);
-    /* Efecto rebote */
 }
 
 #bookmarks img.favicon {
@@ -211,7 +211,83 @@ aside .pixel-canvas {
     border: 0;
 }
 
-/* ADAPTACIÓN RESPONSIVA EN MÓVILES */
+/* SIDEBAR DERECHO */
+#sidebar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 250px;
+    background-color: var(--sidebar-bg);
+    border-left: 1px solid var(--border-color);
+    padding: 2.5rem 1.5rem;
+    box-sizing: border-box;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    z-index: 20;
+}
+
+#sidebar h3 {
+    font-size: 0.85rem;
+    color: #ffffff;
+    margin: 0 0 1rem 0;
+    letter-spacing: 1px;
+}
+
+#sidebar h3.separator {
+    margin-top: 2rem;
+    border-top: 1px dashed var(--border-color);
+    padding-top: 1.5rem;
+}
+
+#sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+#sidebar a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.15s ease, transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: inline-block;
+}
+
+#sidebar a:hover {
+    color: var(--text-hover);
+    transform: translateX(4px);
+}
+
+/* ADAPTACIÓN RESPONSIVA */
+@media (min-width: 960px) {
+    main {
+        padding-right: 250px;
+    }
+}
+
+@media (max-width: 959px) {
+    #top-bar {
+        right: 2rem;
+        /* En pantallas pequeñas donde el sidebar baja, el clima vuelve a la derecha */
+    }
+
+    #sidebar {
+        position: relative;
+        width: 100%;
+        border-left: none;
+        border-top: 1px solid var(--border-color);
+        margin-top: 2rem;
+        padding: 1.5rem;
+        align-items: center;
+        text-align: center;
+    }
+}
+
 @media (max-width: 600px) {
     #top-bar {
         position: relative;

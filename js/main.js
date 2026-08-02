@@ -86,13 +86,12 @@ function initPixelEffect() {
 			canvas.height = height;
 			canvas.className = "pixel-canvas";
 
-			// Prueba rápida para verificar si el canvas permite lectura de píxeles (CORS)
 			ctx.drawImage(imageObj, 0, 0, 1, 1);
-			ctx.getImageData(0, 0, 1, 1); // Dispara error si está contaminado por CORS
+			ctx.getImageData(0, 0, 1, 1);
 
 			parent.replaceChild(canvas, img);
 
-			let pixelFactor = 0.02;
+			let pixelFactor = 0.01; // Comienza bastante pixelado
 
 			function drawPixelated() {
 				ctx.imageSmoothingEnabled = false;
@@ -104,7 +103,8 @@ function initPixelEffect() {
 				ctx.drawImage(canvas, 0, 0, w, h, 0, 0, width, height);
 
 				if (pixelFactor < 1) {
-					pixelFactor += 0.03;
+					// Incremento más lento para extender la animación (~2.5s)
+					pixelFactor += 0.006;
 					requestAnimationFrame(drawPixelated);
 				} else {
 					ctx.imageSmoothingEnabled = true;
@@ -114,7 +114,6 @@ function initPixelEffect() {
 
 			drawPixelated();
 		} catch (e) {
-			// Si ocurre un bloqueo de CORS, mostramos la imagen HTML de forma normal
 			console.warn("Canvas bloqueado por CORS. Mostrando imagen standard.", e);
 			img.style.display = "block";
 		}
