@@ -1,127 +1,159 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <script src="js/main.js"></script>
     <link rel="stylesheet" href="css/main.css">
+    <script src="js/main.js" defer></script>
     <title>ƧΣΔĐΔƧЖƧ</title>
 </head>
-<body onload="traichu()">
-    <main>
-        <header>
-            <section id="date-time">
-                <h2 class="sr-only">Date &amp; Time</h2>
-            </section>
-            <section id="weather">
-                <h2 class="sr-only">Location &amp; Weather</h2>
-            </section>
-        </header>
 
+<body onload="traichu()">
+    <header id="top-bar">
+        <section id="date-time">
+            <h2 class="sr-only">Date &amp; Time</h2>
+        </section>
+        <section id="weather">
+            <h2 class="sr-only">Location &amp; Weather</h2>
+        </section>
+    </header>
+
+    <main>
         <section id="traichu">
             <h1 class="sr-only">_traichu</h1>
-            <aside>
-            <img src="https://github.com/SEADAsXs/startpage2/blob/main/img/toji.png?raw=true">
+
+            <aside id="img-container">
+                <div class="toji-wrapper">
+                    <img id="toji-img" src="https://github.com/SEADAsXs/startpage2/blob/main/img/toji.png?raw=true"
+                        alt="Toji" crossorigin="anonymous">
+                </div>
             </aside>
-            <nav id="dock"> 
+
+            <nav id="dock">
                 <ul>
-                    <li><a href="https://mail.google.com"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Gmail</title><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg></a></li>
-                    <li><a href="https://calendar.google.com"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Calendar</title><path d="M18.316 5.684H24v12.632h-5.684V5.684zM5.684 24h12.632v-5.684H5.684V24zM18.316 5.684V0H1.895A1.894 1.894 0 0 0 0 1.895v16.421h5.684V5.684h12.632zm-7.207 6.25v-.065c.272-.144.5-.349.687-.617s.279-.595.279-.982c0-.379-.099-.72-.3-1.025a2.05 2.05 0 0 0-.832-.714 2.703 2.703 0 0 0-1.197-.257c-.6 0-1.094.156-1.481.467-.386.311-.65.671-.793 1.078l1.085.452c.086-.249.224-.461.413-.633.189-.172.445-.257.767-.257.33 0 .602.088.816.264a.86.86 0 0 1 .322.703c0 .33-.12.589-.36.778-.24.19-.535.284-.886.284h-.567v1.085h.633c.407 0 .748.109 1.02.327.272.218.407.499.407.843 0 .336-.129.614-.387.832s-.565.327-.924.327c-.351 0-.651-.103-.897-.311-.248-.208-.422-.502-.521-.881l-1.096.452c.178.616.505 1.082.977 1.401.472.319.984.478 1.538.477a2.84 2.84 0 0 0 1.293-.291c.382-.193.684-.458.902-.794.218-.336.327-.72.327-1.149 0-.429-.115-.797-.344-1.105a2.067 2.067 0 0 0-.881-.689zm2.093-1.931l.602.913L15 10.045v5.744h1.187V8.446h-.827l-2.158 1.557zM22.105 0h-3.289v5.184H24V1.895A1.894 1.894 0 0 0 22.105 0zm-3.289 23.5l4.684-4.684h-4.684V23.5zM0 22.105C0 23.152.848 24 1.895 24h3.289v-5.184H0v3.289z"/></svg></a></li>
-                    <li><a href="https://keep.google.com"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Keep</title><path d="M4.908 0c-.904 0-1.635.733-1.635 1.637v20.726c0 .904.732 1.637 1.635 1.637H19.09c.904 0 1.637-.733 1.637-1.637V6.5h-6.5V0H4.908zm9.819 0v6h6l-6-6zM11.97 8.229c.224 0 .571.031.765.072.2.04.576.185.842.312.828.414 1.467 1.164 1.774 2.088.168.511.188 1.34.05 1.865a3.752 3.752 0 0 1-1.277 1.952l-.25.193h-1.87c-2.134 0-1.931.042-2.478-.494a3.349 3.349 0 0 1-.984-1.844c-.148-.766-.053-1.437.32-2.203.19-.399.303-.556.65-.899.68-.679 1.513-1.037 2.458-1.042zm-1.866 7.863h3.781v1.328h-3.779v-1.328z"/></svg></a></li>
-                    <li><a href="https://keep.youtube.com"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><title>Youtube</title><path d="M581.7 188.1C575.5 164.4 556.9 145.8 533.4 139.5C490.9 128 320.1 128 320.1 128C320.1 128 149.3 128 106.7 139.5C83.2 145.8 64.7 164.4 58.4 188.1C47 231 47 320.4 47 320.4C47 320.4 47 409.8 58.4 452.7C64.7 476.3 83.2 494.2 106.7 500.5C149.3 512 320.1 512 320.1 512C320.1 512 490.9 512 533.5 500.5C557 494.2 575.5 476.3 581.8 452.7C593.2 409.8 593.2 320.4 593.2 320.4C593.2 320.4 593.2 231 581.8 188.1zM264.2 401.6L264.2 239.2L406.9 320.4L264.2 401.6z"/></svg></a></li>
-                    
-                    <li><a href="https://github.com"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></li>
-                    <li><a href="https://fontawesome.com/"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><title>Font Awesome</title><path d="M155.7 160C170.3 150.8 180 134.5 180 116C180 87.3 156.7 64 128 64C99.3 64 76 87.3 76 116C76 132.7 83.8 147.5 96 157L96 576L160 576L160 512L533.6 512C548.2 512 560 500.2 560 485.6C560 481.9 559.2 478.3 557.7 474.9L496 336L557.7 197.1C559.2 193.7 560 190.1 560 186.4C560 171.8 548.2 160 533.6 160L155.7 160z"/></svg></a></li>
-                        
+                    <li><a href="https://mail.google.com" aria-label="Gmail"><svg role="img" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <title>Gmail</title>
+                                <path
+                                    d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z" />
+                            </svg></a></li>
+                    <li><a href="https://calendar.google.com" aria-label="Google Calendar"><svg role="img"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <title>Google Calendar</title>
+                                <path
+                                    d="M18.316 5.684H24v12.632h-5.684V5.684zM5.684 24h12.632v-5.684H5.684V24zM18.316 5.684V0H1.895A1.894 1.894 0 0 0 0 1.895v16.421h5.684V5.684h12.632zm-7.207 6.25v-.065c.272-.144.5-.349.687-.617s.279-.595.279-.982c0-.379-.099-.72-.3-1.025a2.05 2.05 0 0 0-.832-.714 2.703 2.703 0 0 0-1.197-.257c-.6 0-1.094.156-1.481.467-.386.311-.65.671-.793 1.078l1.085.452c.086-.249.224-.461.413-.633.189-.172.445-.257.767-.257.33 0 .602.088.816.264a.86.86 0 0 1 .322.703c0 .33-.12.589-.36.778-.24.19-.535.284-.886.284h-.567v1.085h.633c.407 0 .748.109 1.02.327.272.218.407.499.407.843 0 .336-.129.614-.387.832s-.565.327-.924.327c-.351 0-.651-.103-.897-.311-.248-.208-.422-.502-.521-.881l-1.096.452c.178.616.505 1.082.977 1.401.472.319.984.478 1.538.477a2.84 2.84 0 0 0 1.293-.291c.382-.193.684-.458.902-.794.218-.336.327-.72.327-1.149 0-.429-.115-.797-.344-1.105a2.067 2.067 0 0 0-.881-.689zm2.093-1.931l.602.913L15 10.045v5.744h1.187V8.446h-.827l-2.158 1.557zM22.105 0h-3.289v5.184H24V1.895A1.894 1.894 0 0 0 22.105 0zm-3.289 23.5l4.684-4.684h-4.684V23.5zM0 22.105C0 23.152.848 24 1.895 24h3.289v-5.184H0v3.289z" />
+                            </svg></a></li>
+                    <li><a href="https://keep.google.com" aria-label="Google Keep"><svg role="img" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <title>Google Keep</title>
+                                <path
+                                    d="M4.908 0c-.904 0-1.635.733-1.635 1.637v20.726c0 .904.732 1.637 1.635 1.637H19.09c.904 0 1.637-.733 1.637-1.637V6.5h-6.5V0H4.908zm9.819 0v6h6l-6-6zM11.97 8.229c.224 0 .571.031.765.072.2.04.576.185.842.312.828.414 1.467 1.164 1.774 2.088.168.511.188 1.34.05 1.865a3.752 3.752 0 0 1-1.277 1.952l-.25.193h-1.87c-2.134 0-1.931.042-2.478-.494a3.349 3.349 0 0 1-.984-1.844c-.148-.766-.053-1.437.32-2.203.19-.399.303-.556.65-.899.68-.679 1.513-1.037 2.458-1.042zm-1.866 7.863h3.781v1.328h-3.779v-1.328z" />
+                            </svg></a></li>
+                    <li><a href="https://www.youtube.com" aria-label="Youtube"><svg role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                                <title>Youtube</title>
+                                <path
+                                    d="M581.7 188.1C575.5 164.4 556.9 145.8 533.4 139.5C490.9 128 320.1 128 320.1 128C320.1 128 149.3 128 106.7 139.5C83.2 145.8 64.7 164.4 58.4 188.1C47 231 47 320.4 47 320.4C47 320.4 47 409.8 58.4 452.7C64.7 476.3 83.2 494.2 106.7 500.5C149.3 512 320.1 512 320.1 512C320.1 512 490.9 512 533.5 500.5C557 494.2 575.5 476.3 581.8 452.7C593.2 409.8 593.2 320.4 593.2 320.4C593.2 320.4 593.2 231 581.8 188.1zM264.2 401.6L264.2 239.2L406.9 320.4L264.2 401.6z" />
+                            </svg></a></li>
+                    <li><a href="https://github.com" aria-label="GitHub"><svg role="img" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <title>GitHub</title>
+                                <path
+                                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                            </svg></a></li>
+                    <li><a href="https://fontawesome.com/" aria-label="Font Awesome"><svg role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                                <title>Font Awesome</title>
+                                <path
+                                    d="M155.7 160C170.3 150.8 180 134.5 180 116C180 87.3 156.7 64 128 64C99.3 64 76 87.3 76 116C76 132.7 83.8 147.5 96 157L96 576L160 576L160 512L533.6 512C548.2 512 560 500.2 560 485.6C560 481.9 559.2 478.3 557.7 474.9L496 336L557.7 197.1C559.2 193.7 560 190.1 560 186.4C560 171.8 548.2 160 533.6 160L155.7 160z" />
+                            </svg></a></li>
                 </ul>
             </nav>
+
             <section id="search">
                 <h2 class="sr-only">Buscar</h2>
-                <form action="https://www.google.com.ar/" method="get">
-                    <input type="text" id="q" name="q" autofocus>
-                    <button class="sr-only" tabindex="-1">Search</button>
+                <form action="https://www.google.com/search" method="get" class="search-box">
+                    <input type="text" id="q" name="q" autofocus autocomplete="off">
+                    <button type="submit" aria-label="Search">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </button>
                 </form>
             </section>
+
             <section id="bookmarks">
                 <h2 class="sr-only">Bookmarks</h2>
                 <ul>
-                    <li>
-                        <a href="https://mail.google.com/mail/u/0"><img src="https://icons.duckduckgo.com/ip3/gmail.com.ico" class="favicon" alt="GMail favicon">IUno</a>
+                    <li><a href="https://mail.google.com/mail/u/0"><img
+                                src="https://icons.duckduckgo.com/ip3/gmail.com.ico" class="favicon" alt="">IUno</a>
                     </li>
-                    <li>
-                        <a href="https://mail.google.com/mail/u/1"><img src="https://icons.duckduckgo.com/ip3/gmail.com.ico" class="favicon" alt="GMail favicon">Personal</a>
+                    <li><a href="https://mail.google.com/mail/u/1"><img
+                                src="https://icons.duckduckgo.com/ip3/gmail.com.ico" class="favicon" alt="">Personal</a>
                     </li>
-                    <li>
-                        <a href="https://mail.google.com/mail/u/2"><img src="https://icons.duckduckgo.com/ip3/gmail.com.ico" class="favicon" alt="GMail favicon">Fram3rate</a>
-                    </li>
-                    <li>
-                        <a href="https://www.reddit.com"><img src="https://icons.duckduckgo.com/ip3/reddit.com.ico" class="favicon" alt="Reddit favicon">Reddit</a>
-                    </li>
-                    <li>
-                        <a href="https://twitter.com"><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico" class="favicon" alt="Twitter favicon">Twitter</a>
-                    </li>
+                    <li><a href="https://mail.google.com/mail/u/2"><img
+                                src="https://icons.duckduckgo.com/ip3/gmail.com.ico" class="favicon"
+                                alt="">Fram3rate</a></li>
+                    <li><a href="https://www.reddit.com"><img src="https://icons.duckduckgo.com/ip3/reddit.com.ico"
+                                class="favicon" alt="">Reddit</a></li>
+                    <li><a href="https://twitter.com"><img src="https://icons.duckduckgo.com/ip3/twitter.com.ico"
+                                class="favicon" alt="">Twitter</a></li>
                 </ul>
-                
+
                 <ul>
-                    <li>
-                        <a href="https://www.youtube.com"><img src="https://icons.duckduckgo.com/ip3/youtube.com.ico" class="favicon" alt="YouTube favicon">YouTube</a>
-                    </li>
-                    <li>
-                        <a href="https://app.plex.tv"><img src="https://icons.duckduckgo.com/ip3/plex.tv.ico" class="favicon" alt="Plex favicon">Plex</a>
-                    </li>
-                   
-                    <li>
-                        <a href="https://www.twitch.tv"><img src="https://icons.duckduckgo.com/ip3/twitch.tv.ico" class="favicon" alt="Twitch favicon">Twitch</a>
-                    </li>
-                    <li>
-                        <a href="https://tidal.com/"><img src="https://icons.duckduckgo.com/ip3/tidal.com.ico" class="favicon" alt="Tidal favicon">Spotify</a>
-                    </li>
-                    <li>
-                        <a href="https://music.youtube.com/"><img src="https://icons.duckduckgo.com/ip3/music.youtube.com.ico" class="favicon" alt="YouTube Music favicon">YouTube Music</a>
-                    </li>
+                    <li><a href="https://www.youtube.com"><img src="https://icons.duckduckgo.com/ip3/youtube.com.ico"
+                                class="favicon" alt="">YouTube</a></li>
+                    <li><a href="https://app.plex.tv"><img src="https://icons.duckduckgo.com/ip3/plex.tv.ico"
+                                class="favicon" alt="">Plex</a></li>
+                    <li><a href="https://www.twitch.tv"><img src="https://icons.duckduckgo.com/ip3/twitch.tv.ico"
+                                class="favicon" alt="">Twitch</a></li>
+                    <li><a href="https://spotify.com/"><img src="https://icons.duckduckgo.com/ip3/spotify.com.ico"
+                                class="favicon" alt="">Spotify</a></li>
+                    <li><a href="https://music.youtube.com/"><img
+                                src="https://icons.duckduckgo.com/ip3/music.youtube.com.ico" class="favicon"
+                                alt="">YouTube Music</a></li>
                 </ul>
+
                 <ul>
-                    <li>
-                        <a href="https://www.hd-tecnologia.com/"><img src="https://icons.duckduckgo.com/ip3/hd-tecnologia.com.ico" class="favicon" alt="HD-Tecnología favicon">HD-Tecnología</a>
-                    </li>
-                    <li>
-                        <a href="https://www.neoteo.com/"><img src="https://icons.duckduckgo.com/ip3/neoteo.com.ico" class="favicon" alt="Neoteo favicon">Neoteo</a>
-                    </li>
-                    <li>
-                        <a href="https://elchapuzasinformatico.com/"><img src="https://icons.duckduckgo.com/ip3/elchapuzasinformatico.com.ico" class="elchapuzasinformatico favicon" alt="elchapuzasinformatico">EC-Informatico</a>
-                    </li>
-                    <li>
-                        <a href="https://www.vidaextra.com/"><img src="https://icons.duckduckgo.com/ip3/vidaextra.com.ico" class="vidaextra favicon" alt="vidaextra favicon">Vida Extra</a>
-                    </li>
-                    <li>
-                        <a href="https://www.irrompibles.net/"><img src="https://icons.duckduckgo.com/ip3/irrompibles.net.ico" class="favicon" alt="Irrompibles favicon">Irrompibles</a>
-                    </li>
-                    
-                    
-                    
+                    <li><a href="https://www.hd-tecnologia.com/"><img
+                                src="https://icons.duckduckgo.com/ip3/hd-tecnologia.com.ico" class="favicon"
+                                alt="">HD-Tecnología</a></li>
+                    <li><a href="https://www.neoteo.com/"><img src="https://icons.duckduckgo.com/ip3/neoteo.com.ico"
+                                class="favicon" alt="">Neoteo</a></li>
+                    <li><a href="https://elchapuzasinformatico.com/"><img
+                                src="https://icons.duckduckgo.com/ip3/elchapuzasinformatico.com.ico" class="favicon"
+                                alt="">EC-Informatico</a></li>
+                    <li><a href="https://www.vidaextra.com/"><img
+                                src="https://icons.duckduckgo.com/ip3/vidaextra.com.ico" class="favicon" alt="">Vida
+                            Extra</a></li>
+                    <li><a href="https://www.irrompibles.net/"><img
+                                src="https://icons.duckduckgo.com/ip3/irrompibles.net.ico" class="favicon"
+                                alt="">Irrompibles</a></li>
                 </ul>
+
                 <ul>
-                    <li>
-                        <a href="https://news.ycombinator.com"><img src="https://icons.duckduckgo.com/ip3/news.ycombinator.com.ico" class="favicon" alt="HackerNews favicon">HackerNews</a>
-                    </li>
-                    <li>
-                        <a href="https://www.reuters.com"><img src="https://icons.duckduckgo.com/ip3/reuters.com.ico" class="favicon" alt="Reuters favicon">Reuters</a>
-                    </li>
-                    <li>
-                        <a href="https://www.supercluster.com"><img src="https://icons.duckduckgo.com/ip3/supercluster.com.ico" class="favicon" alt="Supercluster favicon">Supercluster</a>
-                    </li>
-                    <li>
-                        <a href="https://www.3djuegos.com/"><img src="https://icons.duckduckgo.com/ip3/3djuegos.com.ico" class="favicon" alt="3dJuegos favicon">3D Juegos</a>
-                    </li>
-                    <li>
-                        <a href="https://vandal.elespanol.com/"><img src="https://icons.duckduckgo.com/ip3/vandal.elespanol.com.ico" class="favicon" alt="Vandal favicon">Vandal</a>
-                    </li>
+                    <li><a href="https://news.ycombinator.com"><img
+                                src="https://icons.duckduckgo.com/ip3/news.ycombinator.com.ico" class="favicon"
+                                alt="">HackerNews</a></li>
+                    <li><a href="https://www.reuters.com"><img src="https://icons.duckduckgo.com/ip3/reuters.com.ico"
+                                class="favicon" alt="">Reuters</a></li>
+                    <li><a href="https://www.supercluster.com"><img
+                                src="https://icons.duckduckgo.com/ip3/supercluster.com.ico" class="favicon"
+                                alt="">Supercluster</a></li>
+                    <li><a href="https://www.3djuegos.com/"><img src="https://icons.duckduckgo.com/ip3/3djuegos.com.ico"
+                                class="favicon" alt="">3D Juegos</a></li>
+                    <li><a href="https://vandal.elespanol.com/"><img
+                                src="https://icons.duckduckgo.com/ip3/vandal.elespanol.com.ico" class="favicon"
+                                alt="">Vandal</a></li>
                 </ul>
             </section>
         </section>
     </main>
 </body>
+
 </html>

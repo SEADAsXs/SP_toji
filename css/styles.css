@@ -1,249 +1,237 @@
-body {
-    background-color: var(--primary-background-color);
-    color: var(--primary-font-color);
-    font-family: var(--font-monospace);
-    font-size: var(--font-size-body);
+:root {
+    --bg-color: #1a1a1a;
+    --text-color: #b0b0b0;
+    --text-hover: #ffffff;
+    /* Blanco suave para resaltados */
+    --border-color: #444444;
 }
 
-main {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Fira Code', monospace;
+    margin: 0;
+    padding: 0;
     min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* HEADER SUPERIOR (Fijo como en tu diseño original) */
+#top-bar {
+    position: absolute;
+    top: 1.5rem;
+    left: 2rem;
+    right: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: 0.85rem;
+    color: #cccccc;
+    pointer-events: none;
+}
+
+#date-time,
+#weather {
+    pointer-events: auto;
+}
+
+#date-time p,
+#weather p {
+    margin: 0.1rem 0;
+}
+
+#weather #details {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+#weather img {
+    width: 22px;
+    height: 22px;
+}
+
+/* CONTENEDOR CENTRAL */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 4rem 1rem 2rem 1rem;
+    box-sizing: border-box;
 }
 
 #traichu {
     display: flex;
-    flex: 1 1 auto;
     flex-direction: column;
-    justify-content: center;
-    padding: var(--spacing-l) var(--spacing-m) var(--spacing-m) var(--spacing-m);
-    row-gap: var(--spacing-l);
-    width: 20rem;
-}
-
-header {
-    animation: fade 1s ease-in;
-    display: none;
-    flex: 0 1 auto;
-    flex-direction: row;
-    justify-content: center;
-    padding: var(--spacing-m) var(--spacing-m) 0 var(--spacing-m);
-    position: absolute;
-    top: 0;
-    width: 100%;
-}
-
-#date-time,
-#weather { flex: 1 1 auto; }
-
-#weather { text-align: right; }
-
-#weather img {
-    display: inline-flex;
-    margin-right: var(--spacing-xs);
-    width: 1.5rem;
-}
-
-#date,
-#location {
-    color: var(--primary-link-hover-color);
-    font-weight: 700;
-}
-
-#time,
-#details {
-    color: var(--primary-link-color);
-    text-transform: capitalize;
-}
-
-#details {
     align-items: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
+    width: 100%;
+    max-width: 650px;
+    gap: 1.5rem;
 }
 
-.separator { margin: 0 var(--spacing-xs); }
-
-aside {
+/* IMAGEN TOJI + EFECTO PIXEL */
+#img-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    width: 100%;
 }
 
 aside img,
-aside svg { height: 4.5rem; }
+aside .pixel-canvas {
+    max-width: 100%;
+    height: auto;
+    max-height: 180px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
 
+/* DOCK DE ICONOS */
 #dock ul {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    list-style-type: none;
-    column-gap: var(--spacing-m);
-    row-gap: var(--spacing-m);
+    gap: 1.8rem;
+    list-style: none;
     padding: 0;
+    margin: 0;
 }
 
-#dock a {
-    display: block;
-    fill: var(--primary-link-color);
-    transition: fill 0.125s ease-in-out;
+#dock svg {
+    width: 20px;
+    height: 20px;
+    fill: #777777;
+    transition: fill 0.2s, transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-#dock a:focus,
-#dock a:hover {
-    animation: slime 0.75s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
-    fill: var(--primary-link-hover-color);
-    outline: none;
+#dock a:hover svg {
+    fill: var(--text-hover);
+    transform: translateY(-4px) scale(1.15);
+    /* Efecto de rebote */
 }
 
-#dock li:nth-child(1) a:focus,
-#dock li:nth-child(1) a:hover { fill: hsl(5, 81%, 56%); } /* Gmail */
-#dock li:nth-child(2) a:focus,
-#dock li:nth-child(2) a:hover { fill: hsl(217, 89%, 61%); } /* Google Calendar */
-#dock li:nth-child(3) a:focus,
-#dock li:nth-child(3) a:hover { fill: hsl(44, 100%, 50%); } /* Google Keep */
-#dock li:nth-child(4) a:focus,
-#dock li:nth-child(4) a:hover { fill: var(--primary-link-hover-color); } /* Notion */
-#dock li:nth-child(5) a:focus,
-#dock li:nth-child(5) a:hover { fill: hsl(102, 53%, 52%); } /* Github */
-#dock li:nth-child(6) a:focus,
-#dock li:nth-child(6) a:hover { fill: hsl(14, 89%, 53%); } /* Figma */
-
-#dock svg { height: 1.5rem; }
-
+/* CAJA DE BÚSQUEDA (Borde fino en blanco suave) */
 #search {
+    width: 100%;
+}
+
+.search-box {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    background: transparent;
+    transition: border-color 0.2s;
 }
 
-#search form {
-    flex: 1 1 auto;
+.search-box:focus-within {
+    border-color: #888888;
+}
+
+.search-box input {
     width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 0.95rem;
 }
 
-#search input {
-    background-color: transparent;
-    background-position: right 1.25rem center;
-    background-repeat: no-repeat;
-    background-size: 1.5rem 1.5rem;
-    border-radius: 0.5rem;
-    color: var(--primary-font-color);
-    font-family: var(--font-sans-serif);
-    line-height: 1.5;
-    outline: 0.25rem solid transparent;
-    padding: var(--spacing-m);
-    width: 100%;
+.search-box button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
 }
 
-@media (prefers-color-scheme: dark) {
-    #search input {
-        background-image: var(--svg-search-gray);
-        border: 0.125rem solid hsl(var(--color-white-hsl) / 0.25);
-    }
-    
-    #search input:hover { border-color: hsl(var(--color-white-hsl) / 0.5); }    
-
-    #bookmarks a:focus,
-    #bookmarks a:hover { background-color: hsl(var(--color-white-hsl) / 0.05); }
+.search-box button svg {
+    width: 18px;
+    height: 18px;
+    stroke: #777777;
+    transition: stroke 0.2s;
 }
 
-@media (prefers-color-scheme: light) {
-    #weather img { filter: drop-shadow(0 0 0 hsl(var(--color-black-hsl) / 0.75)); }
-
-    #search input {
-        background-image: var(--svg-search-light-gray);
-        border: 0.125rem solid hsl(var(--color-black-hsl) / 0.25);
-    } 
-
-    #search input:hover { border-color: hsl(var(--color-black-hsl) / 0.5); }
-
-    #bookmarks a:focus,
-    #bookmarks a:hover { background-color: hsl(var(--color-black-hsl) / 0.05); }
+.search-box button:hover svg {
+    stroke: #ffffff;
 }
 
-#search input:focus {
-    background-color: hsl(var(--color-white-hsl) / 0.025);
-    border-color: var(--color-white);
-    outline-color: hsl(var(--color-white-hsl) / 0.25);
-}
-
+/* BOOKMARKS EN COLUMNAS (Estilo limpio original + Bounce) */
 #bookmarks {
-    align-items: flex-start;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 0.5rem;
 }
 
 #bookmarks ul {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    list-style-type: none;
-    margin: 0;
+    list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 #bookmarks li {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    line-height: 1;
-    margin-bottom: var(--spacing-xs);
+    margin-bottom: 0.6rem;
 }
 
-.favicon {
-    margin-right: var(--spacing-s);
-    height: 1rem;
-}
-
+/* Efecto de rebote (bounce) e iluminación blanco suave al pasar por las letras */
 #bookmarks a {
+    display: inline-flex;
     align-items: center;
-    border-radius: 0.25rem;
-    display: flex;
-    color: var(--primary-link-color);
-    padding: var(--spacing-s);
+    gap: 0.5rem;
+    color: var(--text-color);
     text-decoration: none;
+    font-size: 0.88rem;
+    transition: color 0.15s ease, transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-#bookmarks a:focus,
 #bookmarks a:hover {
-    color: var(--primary-link-hover-color);
-    outline: none;
+    color: var(--text-hover);
+    transform: translateX(4px) scale(1.03);
+    /* Efecto rebote */
 }
 
-/*
-    Accessible hiding for screen readers
-    https://webaim.org/techniques/css/invisiblecontent/#techniques
-*/ 
+#bookmarks img.favicon {
+    width: 14px;
+    height: 14px;
+}
+
 .sr-only {
-    height: 1px;
-    left: -10000px;
-    overflow: hidden;
     position: absolute;
-    top: auto;
     width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
 }
 
-/* Responsive Media Queries */
-@media screen and (min-width: 48em) {
-    header { display: flex; }
-    
-    #traichu {
-        padding: 0;
-        width: 45rem; /* 720px */
+/* ADAPTACIÓN RESPONSIVA EN MÓVILES */
+@media (max-width: 600px) {
+    #top-bar {
+        position: relative;
+        top: 0;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 0.8rem;
+        margin-bottom: 1rem;
     }
 
-    aside img,
-    aside svg { height: 7.5rem; }
-
-    #dock ul {
-        column-gap: 0;
-        justify-content: space-around;
-        padding: 0;
+    main {
+        padding-top: 1rem;
     }
 
-    #bookmarks { flex-direction: row; }
+    #bookmarks {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
 }
