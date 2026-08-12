@@ -126,6 +126,6 @@ function initPixelEffect() {
 
 function traichu() {
 	dateTime();
-	weatherBalloon(316817); // ID por defecto
+	weatherBalloon(3427382); // ID por defecto
 	initPixelEffect();
 }
