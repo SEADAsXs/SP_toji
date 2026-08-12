@@ -39,7 +39,7 @@ function weatherBalloon(cityID) {
 				let description = data.weather[0].description;
 
 				document.getElementById('weather').innerHTML =
-					'<p id="location">' + data.name + '</p>' +
+					'<p id="location">La Matanza, Buenos Aires</p>' +
 					'<p id="details" title="' + tempF + '&deg;F">' +
 					'<img src="https://openweathermap.org/img/wn/' + weatherIcon + '.png" alt="clima">' +
 					description + ' <span class="separator">|</span> ' + tempC + '&deg;C</p>';
